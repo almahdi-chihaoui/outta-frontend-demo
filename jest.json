@@ -1,0 +1,6 @@
+{
+    "verbose": true,
+    "bail": true,      
+    "testMatch": ["<rootDir>/tests/suites/**/*.js"],
+    "setupFiles": ["<rootDir>/tests/bootstrap.js"]
+   }

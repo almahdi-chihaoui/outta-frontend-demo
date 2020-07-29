@@ -1,0 +1,12 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: outy
+spec:
+  rules:
+  - host: outy-local.com
+    http:
+      paths:
+      - backend:
+          serviceName: frontend
+          servicePort: http

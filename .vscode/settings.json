@@ -1,0 +1,12 @@
+{
+    "actionButtons": {
+        "defaultColor": "#fff", // Can also use string color names.
+        "commands": [
+            {
+                "name": "deploy",
+                "singleInstance": true,
+                "command": "./scripts/deploy.sh", // This is executed in the terminal.
+            }
+        ]
+    }
+}
