@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import renderer from "react-test-renderer";
 import configureStore from 'redux-mock-store';
 
-import NavBar from "../../../src/containers/app/navBar";
+import NavBar from "../../../../src/containers/app/navBar";
 
 const mockStore = configureStore();
 
@@ -22,15 +22,9 @@ describe('NavBar Component', () => {
             <NavBar></NavBar>
         </Provider>
         );
-        let tree = component.toJSON();
-        console.log(JSON.stringify(tree));
     });
    
     it('should render', () => {
       expect(component.toJSON()).toMatchSnapshot();
-    });
-   
-    it('should dispatch an action on button click', () => {
-   
     });
   });

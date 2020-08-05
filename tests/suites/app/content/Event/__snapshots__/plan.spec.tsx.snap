@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Plan Component should render 1`] = `
+<div
+  className="makeStyles-root-2"
+>
+  <div
+    className="MuiPaper-root makeStyles-paper-1 MuiPaper-elevation1"
+  />
+  <div
+    className="MuiPaper-root makeStyles-paper-1 MuiPaper-elevation1"
+  />
+  <div
+    className="MuiPaper-root makeStyles-paper-1 MuiPaper-elevation1"
+  />
+  <div
+    className="MuiPaper-root makeStyles-paper-1 MuiPaper-elevation1"
+  />
+</div>
+`;

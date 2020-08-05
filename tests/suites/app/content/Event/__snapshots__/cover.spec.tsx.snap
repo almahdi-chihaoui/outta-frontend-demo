@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cover Component should render 1`] = `
+<div
+  className="MuiPaper-root makeStyles-cover-1 MuiPaper-elevation1"
+>
+  <img
+    alt=""
+    className="makeStyles-img-3"
+    src="https://www.pro-sky.com/images/en/news/news_header_webseite_-49-_342_big.jpg"
+  />
+  <div
+    className="makeStyles-desc-2"
+  >
+    <h4
+      className="MuiTypography-root makeStyles-title-4 MuiTypography-h4"
+    >
+      bla
+    </h4>
+    <p
+      className="MuiTypography-root MuiTypography-body1"
+    >
+      blabla
+    </p>
+  </div>
+</div>
+`;
