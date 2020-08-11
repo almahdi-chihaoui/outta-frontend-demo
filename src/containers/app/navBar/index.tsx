@@ -4,6 +4,9 @@ import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 
+/* Interfaces imports */
+import { RootState } from 'modules'
+
 /* UI components */
 import {
   AppBar,
@@ -67,7 +70,7 @@ NavBar.propTypes = {
   isLoading: PropTypes.bool.isRequired,
 };
 
-function mapStateToProps(state) {
+function mapStateToProps(state: RootState) {
   const {
     isLoading,
   } = state.app;

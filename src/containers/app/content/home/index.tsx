@@ -6,12 +6,16 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { push } from 'connected-react-router';
 
+/* Interfaces imports */
+import { RootState } from 'modules';
+
 /* UI components */
 import { Grid } from '@material-ui/core';
 
 /* Relative imports  */
 import EventCard from './eventCard';
 import { fetchEvents } from '../../../../modules/events';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -93,7 +97,7 @@ Events.propTypes = {
   isLoading: PropTypes.bool.isRequired,
 };
 
-function mapStateToProps(state) {
+function mapStateToProps(state: RootState) {
   const {
     isLoading,
   } = state.app;

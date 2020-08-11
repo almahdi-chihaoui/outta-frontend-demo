@@ -5,6 +5,9 @@ import React, { useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 
+/* Interfaces imports */
+import { RootState } from 'modules';
+
 /* UI Components */
 import {
   Grid,
@@ -99,7 +102,7 @@ Event.propTypes = {
   match: PropTypes.object.isRequired,
 };
 
-function mapStateToProps(state) {
+function mapStateToProps(state: RootState) {
   const {
     isLoading,
   } = state.app;

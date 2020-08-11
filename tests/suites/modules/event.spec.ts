@@ -58,7 +58,7 @@ describe('events module actions', () => {
 
 })
 
-describe('app reducer', () => {
+describe('events module reducer', () => {
   it('should return the initial Events module state', () => {
     expect(reducer(undefined, {})).toEqual({
       events: [],

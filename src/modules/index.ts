@@ -10,13 +10,13 @@ import events from './events';
 import { AppState } from './app/interfaces';
 import { EventsState } from './events/interfaces';
 
-export interface ApplicationState {
+export interface RootState {
   app: AppState;
   events: EventsState;
   router: RouterState;
 }
 
-export default (history) => combineReducers<ApplicationState>({
+export default (history) => combineReducers<RootState>({
   app,
   events,
   router: connectRouter(history),
