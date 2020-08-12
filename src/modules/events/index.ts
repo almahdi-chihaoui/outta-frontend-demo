@@ -18,6 +18,9 @@ import { EventsState } from './interfaces';
 /* API imports */
 import eventService from '../../api/event';
 
+/**
+ * Get all events and dispatch the appropriate actions
+ */
 export const fetchEvents = () => (async (dispatch) => {
   dispatch(appIsLoading());
   dispatch(fetchEventsStarted());
@@ -33,6 +36,10 @@ export const fetchEvents = () => (async (dispatch) => {
     });
 });
 
+/**
+ * Get one selected event and dispatch the appropriate actions
+ * @param id Id of the selected event
+ */
 export const fetchEvent = (id) => (async (dispatch) => {
   dispatch(appIsLoading());
   dispatch(fetchEventStarted());
@@ -48,6 +55,9 @@ export const fetchEvent = (id) => (async (dispatch) => {
     });
 });
 
+/**
+ * Initial event state
+ */
 const initialState: EventsState = {
   events: [],
   event: {
@@ -57,6 +67,9 @@ const initialState: EventsState = {
   },
 };
 
+/**
+ * Event reducer
+ */
 const reducer = handleActions({
   [fetchEventsSucceeded]: (state, action) => ({
     ...state,
