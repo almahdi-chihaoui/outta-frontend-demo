@@ -15,29 +15,38 @@ import { appIsLoading, appFinishedLoading } from '../app';
 /* Interfaces imports */
 import { EventsState } from './interfaces';
 
-export const fetchEvents = () => ((dispatch) => {
+/* API imports */
+import eventService from '../../api/event';
+
+export const fetchEvents = () => (async (dispatch) => {
   dispatch(appIsLoading());
   dispatch(fetchEventsStarted());
 
-  return setTimeout(() => {
-    // eslint-disable-next-line no-use-before-define
-    dispatch(fetchEventsSucceeded(eventsExp));
-    dispatch(appFinishedLoading());
-  }, 3000);
-}
-);
+  eventService.get()
+    .then((data) => {
+      dispatch(fetchEventsSucceeded(data));
+      dispatch(appFinishedLoading());
+    })
+    .catch((err) => {
+      dispatch(fetchEventsFailed(err));
+      dispatch(appFinishedLoading());
+    });
+});
 
-export const fetchEvent = (id) => ((dispatch) => {
+export const fetchEvent = (id) => (async (dispatch) => {
   dispatch(appIsLoading());
   dispatch(fetchEventStarted());
 
-  return setTimeout(() => {
-    // eslint-disable-next-line no-use-before-define
-    dispatch(fetchEventSucceeded(eventsExp[id]));
-    dispatch(appFinishedLoading());
-  }, 3000);
-}
-);
+  eventService.getOne(id)
+    .then((data) => {
+      dispatch(fetchEventSucceeded(data));
+      dispatch(appFinishedLoading());
+    })
+    .catch((err) => {
+      dispatch(fetchEventFailed(err));
+      dispatch(appFinishedLoading());
+    });
+});
 
 const initialState: EventsState = {
   events: [],
@@ -68,36 +77,3 @@ const reducer = handleActions({
 }, initialState);
 
 export default reducer;
-
-const eventsExp = [
-  {
-    title: 'Trip to Las Vegas',
-    description: 'What happen in Vegas stay in Vegas',
-    img: 'https://www.pro-sky.com/images/en/news/news_header_webseite_-49-_342_big.jpg',
-  },
-  {
-    title: 'Trip to Las Vegas yeaaaaaa',
-    description: 'What happen in Vegas stay in Vegas',
-    img: 'https://www.pro-sky.com/images/en/news/news_header_webseite_-49-_342_big.jpg',
-  },
-  {
-    title: 'Trip to Las Vegas',
-    description: 'What happen in Vegas stay in Vegas',
-    img: 'https://www.pro-sky.com/images/en/news/news_header_webseite_-49-_342_big.jpg',
-  },
-  {
-    title: 'Trip to Las Vegas',
-    description: 'What happen in Vegas stay in Vegas',
-    img: 'https://www.pro-sky.com/images/en/news/news_header_webseite_-49-_342_big.jpg',
-  },
-  {
-    title: 'Trip to Las Vegas',
-    description: 'What happen in Vegas stay in Vegas',
-    img: 'https://www.pro-sky.com/images/en/news/news_header_webseite_-49-_342_big.jpg',
-  },
-  {
-    title: 'Trip to Las Vegas',
-    description: 'What happen in Vegas stay in Vegas',
-    img: 'https://www.pro-sky.com/images/en/news/news_header_webseite_-49-_342_big.jpg',
-  },
-];

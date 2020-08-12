@@ -37,7 +37,7 @@ const dummyEvents = [
  * A function to fetch events from backend.
  * Curently it is mocked and return a promise that resolve to the list of dummy events above.
  */
-export const getEvents = async (): Promise<Event[]> => {
+const get = async (): Promise<Event[]> => {
   return new Promise((resolve) => {
     setTimeout(() => {
     resolve(dummyEvents);
@@ -51,7 +51,7 @@ export const getEvents = async (): Promise<Event[]> => {
  * Currently it is mocked and return a promise that resolve to a selected event by index from the list of dummy events above. 
  * @param id : The id of the fetched event, currently it use the index of the list of dummy events above.
  */
-export const getEvent = async (id): Promise<Event> => {
+const getOne = async (id): Promise<Event> => {
   return new Promise((resolve) => {
     setTimeout(() => {
     resolve(dummyEvents[id]);
@@ -59,4 +59,7 @@ export const getEvent = async (id): Promise<Event> => {
   })
 }
 
-
+export default {
+  get,
+  getOne,
+}
