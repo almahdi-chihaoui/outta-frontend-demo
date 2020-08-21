@@ -1,6 +1,6 @@
 import * as envalid from 'envalid';
 import * as packageJson from '../package.json';
-const { testOnly, str, num, bool } = envalid;
+const { str, num } = envalid;
 
 export interface IConfig {
   APP_NAME: string;
@@ -30,7 +30,7 @@ export default envalid.cleanEnv(
       default: packageJson.version,
     }),
     OUTTA_BACKEND_URL: str({
-      default: testOnly('http://localhost:8080/'),
+      default: 'http://localhost:8080/',
     }),
     PORT: num({
       default: 8080,
